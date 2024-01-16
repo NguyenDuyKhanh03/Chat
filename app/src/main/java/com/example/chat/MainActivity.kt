@@ -8,6 +8,8 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager.widget.PagerAdapter
+import com.example.chat.Adapter.FragmentsAdapter
 import com.example.chat.databinding.ActivityMainBinding
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.firebase.auth.FirebaseAuth
@@ -41,6 +43,10 @@ class MainActivity : AppCompatActivity() {
                     false
             }
         }
+        bingding.viewPager.adapter=FragmentsAdapter(supportFragmentManager)
+        Toast.makeText(this,bingding.viewPager.currentItem.toString(),Toast.LENGTH_LONG).show()
+        bingding.tabLayout.setupWithViewPager(bingding.viewPager)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
